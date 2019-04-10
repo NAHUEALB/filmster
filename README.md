@@ -17,16 +17,8 @@ Aplicación utilizada en la cursada 2019 de Ingenieria de Software. UTN-FRLP
 
 ## Iniciar la app en modo producción
 
-<<<<<<< HEAD
-`npm start`
-
-##grupo numero 8
-Alberti Nahuel.
-Mendez Carolina.
-Moscoloni Juan Pablo.
-Zammarrelli Agustin.
-=======
 `npm start'
+
 ## Grupo numero 8 
 ## Nahuel Alberti
 ## Juan Pablo Moscoloni
