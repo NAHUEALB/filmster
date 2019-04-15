@@ -22,6 +22,6 @@ Aplicación utilizada en la cursada 2019 de Ingenieria de Software. UTN-FRLP
 ## Grupo numero 8 
 ## Nahuel Alberti
 ## Juan Pablo Moscoloni
-## Carolina Mendez
+## Carolina Mendez.
 ## Agustin Zammarrelli 
 >>>>>>> 8c0563892dcdb00ea99e7683b9a8f983e8291516
