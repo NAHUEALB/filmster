@@ -20,7 +20,7 @@ Aplicación utilizada en la cursada 2019 de Ingenieria de Software. UTN-FRLP
 `npm start'
 
 ## Grupo numero 8 
-## Nahuel Alberti
+## Nahuel  Alberti
 ## Juan Pablo Moscoloni
 ## Carolina Mendez.
 ## Agustin Zammarrelli 
