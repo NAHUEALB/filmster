@@ -65,14 +65,16 @@ function onCheckClicked(table, e) {
 
         if (isSelected) {
             table.selectedRows = [...table.selectedRows, toggleRow]
-
+			 document.querySelector('#editMovieBtn').disabled = false;
+			
             table.onSelectedRow(toggleRow)
         } else {
             table.selectedRows = table.selectedRows.filter(function (row) {
-                return row.title !== toggleRow.title
+                return row.title !== toggleRow.title				
             })
 
             table.onDeselectedRow(toggleRow)
+			document.querySelector('#editMovieBtn').disabled = true;
         }
     }
 }
