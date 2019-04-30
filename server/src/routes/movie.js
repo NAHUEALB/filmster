@@ -23,6 +23,15 @@ router.get('/:id', function (req, res) {
 	}).catch(_ => res.status(500).send('Error al obtener película'))
 })
 
+router.delete('/:id', function(req,res) {
+	MovieModel.remove(req.params.id).then((isRemoved) => {
+		if (isRemoved == null) 
+			res.status(404).send('La película ' + req.params.id + ' no fue encontrada')	
+	else
+			res.status(200).send()
+	})
+})
+
 router.put('/:id', function (req, res) {
 	MovieModel.update(req.params.id, req.body).then((movie) => {
 		if (movie == null) {
