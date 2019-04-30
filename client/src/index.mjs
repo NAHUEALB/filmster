@@ -38,6 +38,9 @@ const $refs = {
     closeModalBtn: document.querySelector('#closeModalBtn'),
 
     modal: document.querySelector('#modal'),
+	
+	//Feature#2.4 Acá referencio al form
+	form: document.querySelector('#formNuevaPelicula'),
 
     movieName: document.querySelector('#movieName'),
     moviePlot: document.querySelector('#moviePlot'),
@@ -61,7 +64,9 @@ function openModal() {
  * Cierra el modal
  */
 function closeModal() {
-    $refs.modal.classList.remove('is-active')
+    $refs.modal.classList.remove('is-active');
+	//Feature#2.4 Acá le aplicó un reset al form
+	$refs.form.reset();
 }
 
 function parseCSV(val) {
