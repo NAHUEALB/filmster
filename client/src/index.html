@@ -19,8 +19,8 @@
             <a class="navbar-item" href="/">
                 <img src="/assets/filmster.svg">
             </a>
-        </div>
-    </nav>
+        </div> <!-- NAVBAR-->
+    </nav> <!-- NAVBAR has-->
 
     <div class="section">
         <div class="container">
@@ -47,9 +47,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- section -->
 
-    <div class="modal" id="modal">
+  <div class="modal" id="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -147,6 +147,71 @@
                 <button class="button" id="cancelModalBtn">Cancelar</button>
             </footer>
         </div>
+    </div>
+
+				<!-- EDITAR MODAL 2 -->
+				
+				<div class="modal" id="modal2">
+					<div class="modal-background"></div>
+						<div class="modal-card">
+						<header class="modal-card-head">
+							<p class="modal-card-title">Editar película</p>
+						<button class="delete" aria-label="close" id="closeModal2Btn"></button>
+						</header>
+
+            <section class="modal-card-body">
+                <form action="">
+                    <div class="field">
+                        <label class="label">Título</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                placeholder="Star Wars: A new hope"
+                                id="movieName2">
+                        </div>
+                    </div>
+							  <div class="field">
+                        <label class="label">Pais</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                placeholder="Estados Unidos"
+                                id="movieCountry2">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Duración</label>
+                        <div class="control">
+                            <input class="input" type="number"
+                                placeholder="110"
+                                id="movieRuntime2">
+                        </div>
+                    </div>
+					
+					<div class="field">
+                        <label class="label">Directores</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                placeholder="George Lucas"
+                                id="movieDirectors2">
+                        </div>
+                    </div>
+					</div>
+					
+                </form>
+					
+				
+            </section>
+			
+			 <!-- MODAL 2 -->
+
+            
+			            <footer class="modal-card-foot">
+
+                <button class="button is-success" id="aceptModal2Btn">Aceptar</button>
+				                <button class="button" id="cancelModal2Btn">Cancelar</button>
+</footer>
+			</div>						
+            
     </div>
 </body>
 <script src="/index.mjs" type="module"></script>
