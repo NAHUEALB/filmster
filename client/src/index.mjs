@@ -84,7 +84,8 @@ function saveMovie() {
         directors: parseCSV($refs.movieDirectors.value)
     }
 
-    movieService.create(movie)
+    movieService.create(movie);
+    location.reload();
 }
 
 // Levantamos los listeners de la app
