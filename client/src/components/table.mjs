@@ -65,11 +65,10 @@ function onCheckClicked(table, e) {
 
         if (isSelected) {
             table.selectedRows = [...table.selectedRows, toggleRow]
-
             table.onSelectedRow(toggleRow)
         } else {
             table.selectedRows = table.selectedRows.filter(function (row) {
-                return row.title !== toggleRow.title
+                return row.title !== toggleRow.title				
             })
 
             table.onDeselectedRow(toggleRow)
