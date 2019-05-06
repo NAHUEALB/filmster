@@ -31,7 +31,7 @@
                         <header class="card-header">
                             <div class="card-header-title" >Películas</div>
                             <div class="card-header-actions">
-                                <button class="button is-normal" id="addMovieBtn" onclick='alert("En desarrollo.")'>Agregar</button>
+                                <button class="button is-normal" id="addMovieBtn">Agregar</button>
                                 <button class="button is-normal is-success" id="editMovieBtn" disabled="true">Editar</button> <!-- agrego ID para feature#2.2-->
                                 <button class="button is-normal">Eliminar</button>
                             </div>
@@ -58,7 +58,8 @@
             </header>
 
             <section class="modal-card-body">
-                <form action="">
+				<!-- Feature#2.4 Acá le puse un id al form -->
+                <form id="formNuevaPelicula" action="">
                     <div class="field">
                         <label class="label">Título</label>
                         <div class="control">

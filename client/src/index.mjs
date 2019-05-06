@@ -17,12 +17,20 @@ window.table = Table('#movies', {
     ],
     data: [],
     // Esta funcion se ejecuta cuando seleccionamos una pelicula
-    onSelectedRow: function (row) {
-        console.log(table.getSelectedRows())
+   onSelectedRow: function (row) {
+		
+		document.getElementById("editMovieBtn").disabled = false;
+		
     },
     // Esta funcion se ejecuta cuando deseleccionamos una pelicula
     onDeselectedRow: function () {
-        console.log(table.getSelectedRows())
+		
+		//getSelectedRows() devuelve la lista de los chequeados
+		if (table.getSelectedRows().length < 1) { 
+		    //Si no hay ningún elemento chequeado que deshabilite el botón
+			document.getElementById("editMovieBtn").disabled = true; 
+			}
+			
     }
 })
 
@@ -42,10 +50,10 @@ const $refs = {
     cancelModalEditarBtn: document.querySelector('#cancelModal2Btn'),
 	aceptModal2Btn: document.querySelector('#aceptModal2Btn'),
 
-
-    
-	modal: document.querySelector('#modal'),
-
+    modal: document.querySelector('#modal'),
+	
+	//Feature#2.4 Acá referencio al form
+	form: document.querySelector('#formNuevaPelicula'),
     movieName: document.querySelector('#movieName'),
     moviePlot: document.querySelector('#moviePlot'),
     movieReleaseDate: document.querySelector('#movieReleaseDate'),
@@ -78,7 +86,9 @@ function openModal() {
  * Cierra el modal
  */
 function closeModal() {
-    $refs.modal.classList.remove('is-active')
+    $refs.modal.classList.remove('is-active');
+	//Feature#2.4 Acá le aplicó un reset al form
+	$refs.form.reset();
 }
 
 /*
@@ -115,7 +125,8 @@ function saveMovie() {
         directors: parseCSV($refs.movieDirectors.value)
     }
 
-    console.log(movie)
+    movieService.create(movie);
+    location.reload();
 }
 
 // Levantamos los listeners de la app
