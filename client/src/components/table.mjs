@@ -28,9 +28,13 @@ function generateBody(headers, rows) {
 
         const check = h('td', {}, $check)
 
+        const $button = createElement(h('input', {id: 'detail', type: 'button',class: 'button is-small is-dark',value: 'Detail'}))
+        $button.row=row
+        const button = h('td',{},$button)
+
         return h('tr', {}, [
             check,
-            ...tds
+            ...tds, button
         ])
     })
 
@@ -76,9 +80,17 @@ function onCheckClicked(table, e) {
     }
 }
 
+function onDetailClicked(table, e) {
+    if (e.target.nodeName === 'INPUT') {
+
+    }
+}
+function alertar() {
+    alert('anda')
+}
 function init(el, config) {
     const $el = document.querySelector(el)
-
+    const $detail = document.querySelector('#detail')
     const table = {
         $el,
         data: config.data,
@@ -86,13 +98,15 @@ function init(el, config) {
         selectedRows: [],
         getSelectedRows: () => table.selectedRows,
         onSelectedRow: config.onSelectedRow || new Function(),
-        onDeselectedRow: config.onDeselectedRow || new Function()
+        onDeselectedRow: config.onDeselectedRow || new Function(),
+        //Creamos la funcion para seleccionar el detalle
+        onSelectDetail: config.onSelectDetail || new Function()
     }
-
     render(table)
 
     table.update = update.bind(null, table),
     $el.addEventListener('click', onCheckClicked.bind(null, table));
+    $detail.addEventListener('click', alertar());
 
     return table
 }
