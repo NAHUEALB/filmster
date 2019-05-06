@@ -25,7 +25,9 @@ window.table = Table('#movies', {
     // Esta funcion se ejecuta cuando deseleccionamos una pelicula
     onDeselectedRow: function () {
 		
+		//getSelectedRows() devuelve la lista de los chequeados
 		if (table.getSelectedRows().length < 1) { 
+		    //Si no hay ningún elemento chequeado que deshabilite el botón
 			document.getElementById("editMovieBtn").disabled = true; 
 			}
 			
