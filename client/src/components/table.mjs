@@ -65,8 +65,6 @@ function onCheckClicked(table, e) {
 
         if (isSelected) {
             table.selectedRows = [...table.selectedRows, toggleRow]
-			 document.querySelector('#editMovieBtn').disabled = false;
-			
             table.onSelectedRow(toggleRow)
         } else {
             table.selectedRows = table.selectedRows.filter(function (row) {
@@ -74,7 +72,6 @@ function onCheckClicked(table, e) {
             })
 
             table.onDeselectedRow(toggleRow)
-			document.querySelector('#editMovieBtn').disabled = true;
         }
     }
 }
