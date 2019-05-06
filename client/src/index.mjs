@@ -17,12 +17,20 @@ window.table = Table('#movies', {
     ],
     data: [],
     // Esta funcion se ejecuta cuando seleccionamos una pelicula
-    onSelectedRow: function (row) {
-        console.log(table.getSelectedRows())
+   onSelectedRow: function (row) {
+		
+		document.getElementById("editMovieBtn").disabled = false;
+		
     },
     // Esta funcion se ejecuta cuando deseleccionamos una pelicula
     onDeselectedRow: function () {
-        console.log(table.getSelectedRows())
+		
+		//getSelectedRows() devuelve la lista de los chequeados
+		if (table.getSelectedRows().length < 1) { 
+		    //Si no hay ningún elemento chequeado que deshabilite el botón
+			document.getElementById("editMovieBtn").disabled = true; 
+			}
+			
     }
 })
 
