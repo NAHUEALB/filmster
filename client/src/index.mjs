@@ -38,8 +38,8 @@ const $refs = {
     closeModalBtn: document.querySelector('#closeModalBtn'),
 	
 	editMovieBtn: document.querySelector('#editMovieBtn'),
-    closeModal2Btn: document.querySelector('#closeModal2Btn'),
-    cancelModal2Btn: document.querySelector('#cancelModal2Btn'),
+    closeModalEditarBtn: document.querySelector('#closeModal2Btn'),
+    cancelModalEditarBtn: document.querySelector('#cancelModal2Btn'),
 	aceptModal2Btn: document.querySelector('#aceptModal2Btn'),
 
 
@@ -59,7 +59,7 @@ const $refs = {
 
 
 	/* MODAL 2 PRUEBA EDITAR */
-	modal_2: document.querySelector('#modal2'),
+	modalEditar: document.querySelector('#modalEditar'),
 
     movieName: document.querySelector('#movieName2'),
 	 movieCountry: document.querySelector('#movieCountry2'),
@@ -84,16 +84,15 @@ function closeModal() {
 /*
  * Abre el modal_2
  */
-function openModal_2() {
-alert ('hola');
-    $refs.modal_2.classList.add('is-active')
+function openModalEditar() {
+$refs.modalEditar.classList.add('is-active')
 }
 
 /*
  * Cierra el modal_2
  */
-function closeModal_2() {
-    $refs.modal_2.classList.remove('is-active')
+function closeModalEditar() {
+    $refs.modalEditar.classList.remove('is-active')
 }
 
 function parseCSV(val) {
@@ -121,9 +120,9 @@ function saveMovie() {
 
 // Levantamos los listeners de la app
 $refs.addMovieBtn.addEventListener('click', openModal)
-$refs.editMovieBtn.addEventListener('click', openModal_2)
-$refs.closeModal2Btn.addEventListener('click', closeModal_2)
-$refs.cancelModal2Btn.addEventListener('click', closeModal_2)
+$refs.editMovieBtn.addEventListener('click', openModalEditar)
+$refs.closeModalEditarBtn.addEventListener('click', closeModalEditar)
+$refs.cancelModalEditarBtn.addEventListener('click', closeModalEditar)
 $refs.cancelModalBtn.addEventListener('click', closeModal)
 $refs.closeModalBtn.addEventListener('click', closeModal)
 $refs.saveMovieBtn.addEventListener('click', saveMovie)

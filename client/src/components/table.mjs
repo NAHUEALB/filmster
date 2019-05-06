@@ -65,7 +65,7 @@ function onCheckClicked(table, e) {
 
         if (isSelected) {
             table.selectedRows = [...table.selectedRows, toggleRow]
-			 document.querySelector('#editMovieBtn').disabled = false;
+			document.querySelector('#editMovieBtn').disabled = false;
 			
             table.onSelectedRow(toggleRow)
         } else {
