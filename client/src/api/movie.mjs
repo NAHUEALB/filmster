@@ -14,8 +14,18 @@ fetch('/api/v1/movies', {
     .then(json => console.log(json));
 }
 
+function editar(movie) {
+fetch('/api/v1/movies/'+movie.id, {
+        method: 'put',
+        body:    JSON.stringify({title:movie.name,description:movie.plot,year:movie.year,runtime:movie.runtime,country:movie.country,language:movie.language,genres:movie.generes,writers:movie.writers,directors:movie.directors}),
+        headers: { 	'Accept': 'application/json',
+        			'Content-Type': 'application/json' },
+    })
+}
+
 
 export default {
     getAll,
-    create
+    create,
+	editar
 }

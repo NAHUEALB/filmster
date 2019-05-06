@@ -46,9 +46,9 @@ const $refs = {
     closeModalBtn: document.querySelector('#closeModalBtn'),
 	
 	editMovieBtn: document.querySelector('#editMovieBtn'),
-    closeModalEditarBtn: document.querySelector('#closeModal2Btn'),
-    cancelModalEditarBtn: document.querySelector('#cancelModal2Btn'),
-	aceptModal2Btn: document.querySelector('#aceptModal2Btn'),
+    closeModalEditarBtn: document.querySelector('#closeModalEditBtn'),
+    cancelModalEditarBtn: document.querySelector('#cancelModalEditBtn'),
+	saveEditMovieBtn: document.querySelector('#saveEditMovieBtn'),
 
     modal: document.querySelector('#modal'),
 	
@@ -69,10 +69,15 @@ const $refs = {
 	/* MODAL 2 PRUEBA EDITAR */
 	modalEditar: document.querySelector('#modalEditar'),
 
-    movieName: document.querySelector('#movieName2'),
-	 movieCountry: document.querySelector('#movieCountry2'),
-    movieRuntime: document.querySelector('#movieRuntime2'),
-    movieDirectors: document.querySelector('#movieDirectors2')
+    movieNameEdit: document.querySelector('#movieNameEdit'),
+	moviePlotEdit: document.querySelector('#moviePlotEdit'),
+	movieReleaseDateEdit: document.querySelector('#movieReleaseDateEdit'),
+	movieCountryEdit: document.querySelector('#movieCountryEdit'),
+    movieRuntimeEdit: document.querySelector('#movieRuntimeEdit'),
+	movieLanguageEdit: document.querySelector('#movieLanguageEdit'),
+	movieGenresEdit: document.querySelector('#movieGeneresEdit'),
+	movieWritersEdit: document.querySelector('#movieWritersEdit'),
+    movieDirectorsEdit: document.querySelector('#movieDirectorsEdit')
 }
 
 /*
@@ -95,7 +100,35 @@ function closeModal() {
  * Abre el modal_2
  */
 function openModalEditar() {
+	
+	//Acá obtengo los datos de la película seleccionada
+    const movieToEdit = {
+		id: table.getSelectedRows()[0].id,
+        name: table.getSelectedRows()[0].title,
+        plot: table.getSelectedRows()[0].description,
+        year: table.getSelectedRows()[0].year,
+        country: table.getSelectedRows()[0].country,
+        runtime: table.getSelectedRows()[0].runtime,
+        language: table.getSelectedRows()[0].language,
+        generes: table.getSelectedRows()[0].genres,
+        writers: table.getSelectedRows()[0].writers,
+        directors: table.getSelectedRows()[0].directors
+    }	
+	
+//Acá lleno los campos con los datos de la película obtenida
+$refs.movieNameEdit.value = movieToEdit.name;
+$refs.moviePlotEdit.value = movieToEdit.plot;
+$refs.movieReleaseDateEdit.value = movieToEdit.year;
+$refs.movieCountryEdit.value = movieToEdit.country;
+$refs.movieRuntimeEdit.value = movieToEdit.runtime;
+$refs.movieLanguageEdit.value = movieToEdit.language;
+$refs.movieGenresEdit.value = movieToEdit.generes.join(); //Con el Join convierto un Array a String
+$refs.movieWritersEdit.value = movieToEdit.writers.join();
+$refs.movieDirectorsEdit.value = movieToEdit.directors.join();
+
+//Acá se abre el modal con los campos llenos
 $refs.modalEditar.classList.add('is-active')
+
 }
 
 /*
@@ -129,11 +162,31 @@ function saveMovie() {
     location.reload();
 }
 
+function saveEditedMovie() {
+    const movie = {
+		
+		id: table.getSelectedRows()[0].id,
+        name: $refs.movieNameEdit.value,
+        plot: $refs.moviePlotEdit.value,
+        year: $refs.movieReleaseDateEdit.value,
+        country: $refs.movieCountryEdit.value,
+        runtime: +$refs.movieRuntimeEdit.value,
+        language: $refs.movieLanguageEdit.value,
+        generes: parseCSV($refs.movieGenresEdit.value),
+        writers: parseCSV($refs.movieWritersEdit.value),
+        directors: parseCSV($refs.movieDirectorsEdit.value)
+    }
+
+    movieService.editar(movie);
+    location.reload();
+}
+
 // Levantamos los listeners de la app
 $refs.addMovieBtn.addEventListener('click', openModal)
 $refs.editMovieBtn.addEventListener('click', openModalEditar)
 $refs.closeModalEditarBtn.addEventListener('click', closeModalEditar)
 $refs.cancelModalEditarBtn.addEventListener('click', closeModalEditar)
+$refs.saveEditMovieBtn.addEventListener('click', saveEditedMovie)
 $refs.cancelModalBtn.addEventListener('click', closeModal)
 $refs.closeModalBtn.addEventListener('click', closeModal)
 $refs.saveMovieBtn.addEventListener('click', saveMovie)

@@ -157,25 +157,41 @@
 						<div class="modal-card">
 						<header class="modal-card-head">
 							<p class="modal-card-title">Editar película</p>
-						<button class="delete" aria-label="close" id="closeModal2Btn"></button>
+						<button class="delete" aria-label="close" id="closeModalEditBtn"></button>
 						</header>
 
             <section class="modal-card-body">
                 <form action="">
                     <div class="field">
+					
                         <label class="label">Título</label>
                         <div class="control">
                             <input class="input" type="text"
-                                placeholder="Star Wars: A new hope"
-                                id="movieName2">
+                                id="movieNameEdit">
                         </div>
+						
+					    <div class="field">
+                        <label class="label">Sinopsis</label>
+                        <div class="control">
+                            <textarea class="textarea"
+                                id="moviePlotEdit"></textarea>
+                        </div>
+						
+						 <div class="field">
+                        <label class="label">Año</label>
+                        <div class="control">
+                            <input class="input"
+                                id="movieReleaseDateEdit">
+                        </div>
+                    </div>
+						
+                    </div>
                     </div>
 							  <div class="field">
                         <label class="label">Pais</label>
                         <div class="control">
                             <input class="input" type="text"
-                                placeholder="Estados Unidos"
-                                id="movieCountry2">
+                                id="movieCountryEdit">
                         </div>
                     </div>
 
@@ -183,8 +199,31 @@
                         <label class="label">Duración</label>
                         <div class="control">
                             <input class="input" type="number"
-                                placeholder="110"
-                                id="movieRuntime2">
+                                id="movieRuntimeEdit">
+                        </div>
+                    </div>
+					
+					<div class="field">
+                        <label class="label">Lenguaje</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieLanguageEdit">
+                        </div>
+                    </div>
+					
+					<div class="field">
+                        <label class="label">Generos</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieGeneresEdit">
+                        </div>
+                    </div>
+					
+					<div class="field">
+                        <label class="label">Guionistas</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieWritersEdit">
                         </div>
                     </div>
 					
@@ -192,8 +231,7 @@
                         <label class="label">Directores</label>
                         <div class="control">
                             <input class="input" type="text"
-                                placeholder="George Lucas"
-                                id="movieDirectors2">
+                                id="movieDirectorsEdit">
                         </div>
                     </div>
 					</div>
@@ -204,12 +242,9 @@
             </section>
 			
 			 <!-- MODAL 2 -->
-
-            
-			            <footer class="modal-card-foot">
-
-                <button class="button is-success" id="aceptModal2Btn">Aceptar</button>
-				                <button class="button" id="cancelModal2Btn">Cancelar</button>
+             <footer class="modal-card-foot">
+             <button class="button is-success" id="saveEditMovieBtn">Aceptar</button>
+	         <button class="button" id="cancelModalEditBtn">Cancelar</button>
 </footer>
 			</div>						
             
