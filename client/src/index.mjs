@@ -18,18 +18,25 @@ window.table = Table('#movies', {
     data: [],
     // Esta funcion se ejecuta cuando seleccionamos una pelicula
    onSelectedRow: function (row) {
-		
-		document.getElementById("editMovieBtn").disabled = false;
-		
+	   
+	   	if (table.getSelectedRows().length > 1) { 
+	    //Si hay más de una película seleccionada deshabilita el botón
+	    document.getElementById("editMovieBtn").disabled = true; 
+		} else {
+		document.getElementById("editMovieBtn").disabled = false; 
+		}
+	
     },
     // Esta funcion se ejecuta cuando deseleccionamos una pelicula
     onDeselectedRow: function () {
 		
 		//getSelectedRows() devuelve la lista de los chequeados
-		if (table.getSelectedRows().length < 1) { 
-		    //Si no hay ningún elemento chequeado que deshabilite el botón
+		if (table.getSelectedRows().length == 1) { 
+		    //Si hay un solo botón seleccionado habilita el botón
+			document.getElementById("editMovieBtn").disabled = false; 
+		} else {
 			document.getElementById("editMovieBtn").disabled = true; 
-			}
+		}
 			
     }
 })
