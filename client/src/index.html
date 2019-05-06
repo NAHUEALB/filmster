@@ -19,8 +19,8 @@
             <a class="navbar-item" href="/">
                 <img src="/assets/filmster.svg">
             </a>
-        </div>
-    </nav>
+        </div> <!-- NAVBAR-->
+    </nav> <!-- NAVBAR has-->
 
     <div class="section">
         <div class="container">
@@ -47,9 +47,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- section -->
 
-    <div class="modal" id="modal">
+  <div class="modal" id="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -148,6 +148,106 @@
                 <button class="button" id="cancelModalBtn">Cancelar</button>
             </footer>
         </div>
+    </div>
+
+				<!-- EDITAR MODAL 2 -->
+				
+				<div class="modal" id="modalEditar">
+					<div class="modal-background"></div>
+						<div class="modal-card">
+						<header class="modal-card-head">
+							<p class="modal-card-title">Editar película</p>
+						<button class="delete" aria-label="close" id="closeModalEditBtn"></button>
+						</header>
+
+            <section class="modal-card-body">
+                <form action="">
+                    <div class="field">
+					
+                        <label class="label">Título</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieNameEdit">
+                        </div>
+						
+					    <div class="field">
+                        <label class="label">Sinopsis</label>
+                        <div class="control">
+                            <textarea class="textarea"
+                                id="moviePlotEdit"></textarea>
+                        </div>
+						
+						 <div class="field">
+                        <label class="label">Año</label>
+                        <div class="control">
+                            <input class="input"
+                                id="movieReleaseDateEdit">
+                        </div>
+                    </div>
+						
+                    </div>
+                    </div>
+							  <div class="field">
+                        <label class="label">Pais</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieCountryEdit">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Duración</label>
+                        <div class="control">
+                            <input class="input" type="number"
+                                id="movieRuntimeEdit">
+                        </div>
+                    </div>
+					
+					<div class="field">
+                        <label class="label">Lenguaje</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieLanguageEdit">
+                        </div>
+                    </div>
+					
+					<div class="field">
+                        <label class="label">Generos</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieGeneresEdit">
+                        </div>
+                    </div>
+					
+					<div class="field">
+                        <label class="label">Guionistas</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieWritersEdit">
+                        </div>
+                    </div>
+					
+					<div class="field">
+                        <label class="label">Directores</label>
+                        <div class="control">
+                            <input class="input" type="text"
+                                id="movieDirectorsEdit">
+                        </div>
+                    </div>
+					</div>
+					
+                </form>
+					
+				
+            </section>
+			
+			 <!-- MODAL 2 -->
+             <footer class="modal-card-foot">
+             <button class="button is-success" id="saveEditMovieBtn">Aceptar</button>
+	         <button class="button" id="cancelModalEditBtn">Cancelar</button>
+</footer>
+			</div>						
+            
     </div>
 </body>
 <script src="/index.mjs" type="module"></script>
