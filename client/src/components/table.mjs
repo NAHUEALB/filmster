@@ -46,7 +46,7 @@ function generateBody(headers, rows, data) {
 }
 
 function direccionar(table) {
-    window.open('../details.html','_self')
+    window.location.href = "./details.html?"+table.target.row.id;
             }
 
 function render(table) {
