@@ -24,6 +24,11 @@ fetch('/api/v1/movies/'+movie.id, {
     })
 }
 
+function get(id) {
+    return fetch('/api/v1/movies'+id)
+        .then(result => result.json())
+}
+
 
 export default {
     getAll,

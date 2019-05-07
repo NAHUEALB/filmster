@@ -13,7 +13,7 @@ function generateHeader(headers) {
     return createElement(thead)
 }
 
-function generateBody(headers, rows) {
+function generateBody(headers, rows, data) {
     const trs = rows.map(function (row) {
         const tds = headers.map(function (header) {
             const { label, field, render } = header
@@ -28,9 +28,12 @@ function generateBody(headers, rows) {
 
         const check = h('td', {}, $check)
 
-        const $button = createElement(h('input', {id: 'detail', type: 'button',class: 'button is-small is-dark',value: 'Detail'}))
+        const $button = createElement(h('input',{id: 'detail', type: 'button',class: 'button is-small is-dark',value: 'Detail'}))
         $button.row=row
+       $button.addEventListener('click', direccionar.bind(table));
+
         const button = h('td',{},$button)
+
 
         return h('tr', {}, [
             check,
@@ -41,6 +44,10 @@ function generateBody(headers, rows) {
     const tbody = h('tbody', {}, trs)
     return createElement(tbody)
 }
+
+function direccionar(table) {
+    window.open('../details.html','_self')
+            }
 
 function render(table) {
     const { $el, header, data } = table 
@@ -80,17 +87,8 @@ function onCheckClicked(table, e) {
     }
 }
 
-function onDetailClicked(table, e) {
-    if (e.target.nodeName === 'INPUT') {
-
-    }
-}
-function alertar() {
-    alert('anda')
-}
 function init(el, config) {
     const $el = document.querySelector(el)
-    const $detail = document.querySelector('#detail')
     const table = {
         $el,
         data: config.data,
@@ -106,8 +104,6 @@ function init(el, config) {
 
     table.update = update.bind(null, table),
     $el.addEventListener('click', onCheckClicked.bind(null, table));
-    $detail.addEventListener('click', alertar());
-
     return table
 }
 
