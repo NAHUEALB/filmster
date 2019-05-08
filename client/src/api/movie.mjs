@@ -24,14 +24,20 @@ fetch('/api/v1/movies/'+movie.id, {
     })
 }
 
-function get(id) {
-    console.log('hola');
+function getById(id) {
+	
+    return fetch('/api/v1/movies/'+id)
+        .then( data => data.json())	
+		//Si hay algún error
+		.catch(function(error) {
+          alert('Ocurrió un error')
+  });
 }
 
 
 export default {
     getAll,
-    get,
+    getById,
     create,
 	editar
 }
