@@ -1,4 +1,5 @@
 import Table from './components/table.mjs'
+import { parseCSV } from './utils.mjs'
 import movieService from './api/movie.mjs'
 
 // Inicializamos la tabla
@@ -143,10 +144,6 @@ $refs.modalEditar.classList.add('is-active')
  */
 function closeModalEditar() {
     $refs.modalEditar.classList.remove('is-active')
-}
-
-function parseCSV(val) {
-    return val.split(',').flatMap(v => v.split());
 }
 
 /*
