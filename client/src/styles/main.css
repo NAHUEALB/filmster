@@ -12,3 +12,13 @@
         width: 120px;
     }
 }
+
+.column {
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+}
+
+label {
+	color: deepskyblue;
+}

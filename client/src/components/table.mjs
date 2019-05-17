@@ -13,7 +13,7 @@ function generateHeader(headers) {
     return createElement(thead)
 }
 
-function generateBody(headers, rows) {
+function generateBody(headers, rows, data) {
     const trs = rows.map(function (row) {
         const tds = headers.map(function (header) {
             const { label, field, render } = header
@@ -28,15 +28,26 @@ function generateBody(headers, rows) {
 
         const check = h('td', {}, $check)
 
+        const $button = createElement(h('input',{id: 'detail', type: 'button',class: 'button is-small is-dark',value: 'Detail'}))
+        $button.row=row
+       $button.addEventListener('click', direccionar.bind(table));
+
+        const button = h('td',{},$button)
+
+
         return h('tr', {}, [
             check,
-            ...tds
+            ...tds, button
         ])
     })
 
     const tbody = h('tbody', {}, trs)
     return createElement(tbody)
 }
+
+function direccionar(table) {
+    window.location.href = "./details.html?"+table.target.row.id;
+            }
 
 function render(table) {
     const { $el, header, data } = table 
@@ -78,7 +89,6 @@ function onCheckClicked(table, e) {
 
 function init(el, config) {
     const $el = document.querySelector(el)
-
     const table = {
         $el,
         data: config.data,
@@ -86,14 +96,14 @@ function init(el, config) {
         selectedRows: [],
         getSelectedRows: () => table.selectedRows,
         onSelectedRow: config.onSelectedRow || new Function(),
-        onDeselectedRow: config.onDeselectedRow || new Function()
+        onDeselectedRow: config.onDeselectedRow || new Function(),
+        //Creamos la funcion para seleccionar el detalle
+        onSelectDetail: config.onSelectDetail || new Function()
     }
-
     render(table)
 
     table.update = update.bind(null, table),
     $el.addEventListener('click', onCheckClicked.bind(null, table));
-
     return table
 }
 

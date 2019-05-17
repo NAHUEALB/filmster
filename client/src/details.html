@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="has-background-light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+
+    <title>Filmster</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+    <link rel="stylesheet" href="/styles/main.css">
+	
+	<script src="./details.mjs" type="module"> </script>
+</head>
+
+
+<body>
+    <nav class="navbar has-shadow is-spaced" role="navigation" aria-label="main navigation">
+	
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="/assets/filmster.svg">
+            </a>
+        </div> <!-- NAVBAR-->
+
+    </nav> <!-- NAVBAR has-->
+
+
+        <header class=" is-size-2 has-text-weight-bold ">
+               <center><p id="title"></p></center>
+        </header>
+
+            <div id="pelicula" class="card">
+			
+                <div class="card-content">
+                    <p id="description" class="is-size-4 is-italic"> </p>
+                 </br> </br>
+                    <div class='columns '>
+
+                        <div class="column is-1"></div>
+                        <div class="column is-1 has-background-dark "> 
+                            <label class="has-text-weight-bold ">Directores</label>
+                        </div>
+                        <div class="column is-9 "> 
+                            <span id="director"></span>
+                        </div>
+                    </div>
+
+                    <div class='columns '>
+                        <div class="column is-1"></div>
+                        <div class="column is-1 has-background-dark "> 
+                            <label class="has-text-weight-bold">Guionistas</label>
+                        </div>
+                        <div class="column is-9"> 
+                            <span id="writers"></span>
+                        </div>
+                    </div>
+
+                    <div class='columns '>
+                        <div class="column is-1"></div>
+                        <div class="column is-1 has-background-dark "> 
+                            <label class="has-text-weight-bold">Género</label>
+                        </div>
+                        <div  class="column is-9"> 
+                            <span id="genre"></span>
+                        </div>
+                    </div>
+
+                    <div class='columns '>
+                        <div class="column is-1"></div>
+                        <div class="column is-1 has-background-dark "> 
+                            <label class="has-text-weight-bold">Duración</label>
+                        </div>
+                        <div  class="column is-9"> 
+                            <span id="runtime"></span>
+                        </div>
+                    </div>
+
+                    <div class='columns '>
+                        <div class="column is-1"></div>
+                        <div class="column is-1 has-background-dark "> 
+                            <label class="has-text-weight-bold">Lenguaje</label>
+                        </div>
+                        <div  class="column is-9"> 
+                            <span id="language"></span>
+                        </div>
+                    </div>
+
+                    <div class='columns '>
+                        <div class="column is-1"></div>
+                        <div class="column is-1 has-background-dark "> 
+                            <label class="has-text-weight-bold">País</label>
+                        </div>
+                        <div  class="column is-9"> 
+                            <span id="country"></span>
+                        </div>
+                    </div>
+
+                    <div class='columns '>
+                        <div class="column is-1"></div>
+                        <div class="column is-1 has-background-dark "> 
+                            <label class="has-text-weight-bold">Año</label>
+                        </div>
+                        <div class="column is-9"> 
+                            <span id="year"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+	</br>		
+    <center><a href="index.html"><button class="button is-normal is-dark" id="addMovieBtn">Volver</button></a></center>
+	</br>
+                        
+</body>
+
+</html>
