@@ -40,7 +40,12 @@ test('Se debería eliminar una película por API', async () => {
     };
 	
 	// Se crea la película y se guarda en movie
-    const movie = await MovieModels.create(movieData);
+    const movie = await fetch(URL, {
+				  method: 'post',
+				  body:    JSON.stringify({title:movieData.name,description:movieData.plot,year:movieData.year,
+						   runtime:movieData.runtime,country:movieData.country,language:movieData.language,
+						   genres:movieData.generes,writers:movieData.writers,directors:movieData.directors})
+    })	;
 	
 	// La elimino
 	await fetch(URL+movie.id, { method: 'delete' });	
