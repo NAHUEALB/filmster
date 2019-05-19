@@ -7,6 +7,8 @@ const detectPort = require('detect-port')
 
 const models = require('./models/index.js')
 const movieRouter = require('./routes/movie.js')
+//Test opcional 1
+const usuarioRouter = require('./routes/usuario.js')
 const client = path.resolve(__dirname, '..', '..', 'client')
 
 const inTest = process.env.NODE_ENV === 'test'
@@ -14,6 +16,7 @@ const inTest = process.env.NODE_ENV === 'test'
 async function startServer(port=process.env.SERVER_PORT) {
     port = port || (await detectPort(3000))
     await models.createTables();
+	await models.createTableUsuario();
 
     const app = express()
     app.use(bodyParser.json())
@@ -24,7 +27,8 @@ async function startServer(port=process.env.SERVER_PORT) {
     app.use('/assets', express.static(path.resolve(client, 'assets')));
 
     // Rutas
-    app.use('/api/v1/movies', movieRouter)
+    app.use('/api/v1/movies', movieRouter);
+	app.use('/api/v1/usuarios', usuarioRouter);
 
     return new Promise(function (resolve) {
         const server = app.listen(port, function () {

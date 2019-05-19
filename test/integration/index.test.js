@@ -19,6 +19,13 @@ test('Se debería iniciar la aplicación sin películas', async () => {
     expect(movies.length).toBe(0);
 });
 
+test('Se debería iniciar la aplicación sin usuarios', async () => {
+    const URL = `${baseURL}/usuarios`;
+    const req = await fetch(URL);
+    const usuarios = await req.json();
+    expect(usuarios.length).toBe(0);
+});
+
 test('Se debería reflejar en la base de datos la pelicula agregada', async () =>
 {
 	const URL = `${baseURL}/movies`;
@@ -47,5 +54,31 @@ test('Se debería reflejar en la base de datos la pelicula agregada', async () =
 		}
 
   expect(movie.title).toBe(result.title);
+
+});
+
+test('Se debería crear un usuario desde el cliente', async () =>
+{
+	const URL = `${baseURL}/usuarios/`;
+	
+	 const usuario = {
+        alias: 'Zamma',
+        nombre: 'Agustin',
+        apellido: 'Zammarrelli',
+        password: '12345',
+    }
+	
+	const usuarioRequestCrear = await fetch(URL, {
+        method: 'post',
+		body:    JSON.stringify({alias:usuario.alias,nombre:usuario.nombre,apellido: usuario.apellido,
+       	password:usuario.password})
+    });	
+	
+	const usuarioCreado = await usuarioRequestCrear.json();
+
+	const usuarioRequestObtener = await fetch(URL);
+    const usuarioRecuperado = usuarioRequestObtener.json();
+
+    expect(usuarioRecuperado.alias).toBe(usuarioCreado.alias);
 
 });

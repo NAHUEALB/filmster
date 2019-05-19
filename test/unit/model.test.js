@@ -1,7 +1,9 @@
 const MovieModels = require('../../server/src/models/movie.js')
+const UsuarioModels = require('../../server/src/models/usuario.js')
 
 beforeEach(async () => {
     await MovieModels.Movie.sync({ force: true });
+	await UsuarioModels.Usuario.sync({ force: true });
 })
 
 test('Crear película', async () => {
@@ -25,6 +27,25 @@ test('Crear película', async () => {
     expect(movie.year).toBe(movieData.year);
 
     // Completar test
+})
+
+test('Crear Usuario', async () => {
+	
+	 const usuarioData = {
+        alias: 'Zamma',
+        nombre: 'Agustin',
+        apellido: 'Zammarrelli',
+        password: '12345',
+    };
+
+    // Creamos la pelicula
+    const usuario = await UsuarioModels.create(usuarioData)
+
+    expect(usuario.alias).toBe(usuarioData.alias);
+	expect(usuario.nombre).toBe(usuarioData.nombre);
+	expect(usuario.apellido).toBe(usuarioData.apellido);
+	expect(usuario.password).toBe(usuarioData.password);
+
 })
 
 test('Crear película sin título', async () => {
