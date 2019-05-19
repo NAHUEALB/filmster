@@ -121,3 +121,38 @@ test('Se debería poder seleccionar una película', async () => {
     expect(selectedRows.length).toBe(1);
     expect(selectedRows[0].title).toBe(movie.title);
 })
+
+
+
+
+
+test('Se debería tener habilitado boton editar al seleccionar pelicula', async () => {
+ const movie = {
+        title: 'Back to the Future',
+        description: 'Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.',
+        year: 1985,
+        runtime: 116,
+        country: 'United States',
+        language: 'English',
+        genres: ['Adventure', 'Comedy', 'Science Fiction'],
+        directors: ['Robert Zemeckis'],
+        writers: ['Robert Zemeckis', 'Bob Gale']
+    };
+
+    await fetch(`${baseURL}/api/v1/movies`, {
+        method: 'POST',
+        body: JSON.stringify(movie),
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    });
+
+    await page.reload();
+    const rows = await page.$$('table#movies tbody tr');
+
+    expect(rows.length).toBe(1);
+    await page.$eval('table#movies tbody tr td:nth-child(1) input', firstCheck => firstCheck.click());
+   const Btn = await page.$('#editMovieBtn'.disabled) == null; // null resultado implica el botón no está desactivado
+    expect(Btn).toBe(true);
+
+})
