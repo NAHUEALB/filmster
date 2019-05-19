@@ -1,4 +1,5 @@
 export function parseCSV(val) {
-    return val.split(',').flatMap(v => v.split());
+	//Corrección test opcional 2 | hotfix/2
+    return val.split(',').map(str => str.trim());
 }
 
